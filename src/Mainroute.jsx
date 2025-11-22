@@ -18,9 +18,7 @@ const Mainroute = createBrowserRouter([
             {
                 index: true,
                 element: <>
-                    <Protect>
-                        <Home />
-                    </Protect>
+                    <Home />
                 </>
             }, {
                 path: "products",

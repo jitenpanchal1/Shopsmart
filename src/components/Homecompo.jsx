@@ -1,6 +1,11 @@
 import React from 'react'
-import Slider from 'react-slick';
-import Mobile from '../assets/mobileoffer.png'
+import Slider from 'react-slick'
+import Fashion from "../assets/fashion.png"
+import Swatch from "../assets/swatch.png"
+import Shoesh from "../assets/shoes.png"
+import School from "../assets/school.png"
+import Chrimas from "../assets/chrimas.png"
+import Makeup from "../assets/makeup.png"
 
 export default function Homecompo() {
     const settings = {
@@ -10,46 +15,34 @@ export default function Homecompo() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        // autoplaySpeed: 2000,
-        arrows: true,
-
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: { slidesToShow: 3 }
-            },
-            {
-                breakpoint: 768,
-                settings: { slidesToShow: 2 }
-            },
-            {
-                breakpoint: 480,
-                settings: { slidesToShow: 1 }
-            },
-        ],
-    };
+        arrows: false,
+    }
 
     const images = [
-        Mobile,
-        "https://picsum.photos/1600/600?random=1",
-        3,
-        4,
-        5,
-        6
-    ];
+        Swatch,
+        Fashion,
+        Shoesh,
+        School,
+        Chrimas,
+        Makeup,
+    ]
+
     return (
-        <section className="max-w-6xl mx-auto mt-5">
+        <section className="max-w-7xl mx-auto mt-5 px-2">
             <Slider {...settings}>
                 {images.map((img, index) => (
-                    <div key={index} className="p-2">
-                        <img
-                            src={img}
-                            alt={`Slide ${index}`}
-                            className="rounded-2xl shadow-lg w-full h-[500px]  object-cover"
-                        />
+                    <div key={index}>
+                        <div className="w-full aspect-[16/6] overflow-hidden rounded-2xl shadow-lg">
+                            <img
+                                src={img}
+                                alt={`Slide ${index}`}
+                                className="w-full h-full object-cover object-center"
+                            />
+                        </div>
                     </div>
                 ))}
             </Slider>
         </section>
+
     )
 }

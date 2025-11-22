@@ -10,12 +10,17 @@ export default function LLogin() {
     const [detail, setdetail] = useState({
         username: "",
         password: "",
+        check: false,
     });
     const [error, seterror] = useState(null);
     const [loading, setloading] = useState(false);
 
     const handchange = (e) => {
-        setdetail({ ...detail, [e.target.name]: e.target.value });
+        const { name, type, checked, value } = e.target;
+        setdetail({
+            ...detail,
+            [name]: type === "checkbox" ? checked : value,
+        });
     };
 
     const adduser = async (e) => {
@@ -24,6 +29,11 @@ export default function LLogin() {
         seterror(null);
         if (!detail.username || !detail.password) {
             seterror("All fields are required");
+            setloading(false);
+            return;
+        }
+        if (detail.check === false) {
+            seterror("Please agree to the terms and conditions");
             setloading(false);
             return;
         }
@@ -57,11 +67,8 @@ export default function LLogin() {
     };
     return (
         <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-indigo-100 px-4">
+            <section className="w-full max-w-2xl bg-white border border-slate-200 rounded-3xl shadow-xl px-10 py-6">
 
-            {/* Login Section */}
-            <section className="w-full max-w-md bg-white border border-slate-200 rounded-3xl shadow-xl p-8">
-
-                {/* Header */}
                 <header className="flex flex-col items-center mb-6">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-500
                             flex items-center justify-center shadow-md text-white text-xl font-bold">
@@ -73,8 +80,7 @@ export default function LLogin() {
                     </p>
                 </header>
 
-                {/* Login Form */}
-                <form onSubmit={adduser} className="flex flex-col gap-4" aria-label="Login Form">
+                <form onSubmit={adduser} className="flex flex-col gap-3">
 
                     <div className="relative">
                         <input
@@ -106,24 +112,40 @@ export default function LLogin() {
 
                     <button
                         type="submit"
-                        className="w-full mt-2 px-6 py-3 rounded-xl bg-indigo-600 
+                        className="w-full cursor-pointer mt-2 px-6 py-3 rounded-xl bg-indigo-600 
                        text-white text-sm font-semibold shadow-md 
                        hover:bg-indigo-500 hover:shadow-lg active:scale-95 
                        transition-all duration-200"
                     >
                         {loading ? "..." : "Login"}
                     </button>
+                    <div className="flex items-center mt-4">
+                        <input
+                            type="checkbox"
+                            name="check"
+                            checked={detail.check}
+                            onChange={handchange}
+                            className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-slate-300 rounded"
+                        />
+                        <label htmlFor="check" className="ml-2 block text-sm text-slate-700">
+                            I agree to the terms and conditions
+                        </label>
+                    </div>
                 </form>
-                {/* Footer Links */}
+
                 <footer className="mt-6 text-center">
-                    <p className="text-xs text-slate-500 leading-relaxed">
-                        This login system uses a simple backend powered by a free mock API service.
-                        <br />
-                        No real authentication, no permanent storage — everything stays temporary.
-                        <br />
-                        Your data is NOT shared and NOT stored anywhere.
-                        When you refresh the page or close the tab, all entered data is automatically deleted.
-                    </p>
+                    <div className="mt-6 p-4 rounded-xl bg-yellow-50 border-l-4 border-yellow-500 shadow-md ">
+                        <h3 className="text-sm font-bold text-yellow-800 mb-2 flex items-center gap-0">
+                            ⚠ Important Notice
+                        </h3>
+
+                        <ul className="text-xs text-yellow-900 leading-relaxed list-disc pl-5 space-y-1">
+                            <li>This login is powered by a mock API service.</li>
+                            <li>No real authentication or permanent storage exists.</li>
+                            <li>All data is temporary and resets on refresh.</li>
+                            <li>Do NOT use real credentials.</li>
+                        </ul>
+                    </div>
 
                     <div className="mt-6 flex items-center gap-3">
                         <div className="flex-1 h-px bg-slate-300"></div>

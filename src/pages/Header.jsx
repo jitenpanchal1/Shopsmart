@@ -115,7 +115,7 @@ export default function Header() {
               </span>
               <button
                 onClick={handleLogout}
-                className="text-xs px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors duration-200 font-medium"
+                className="text-xs cursor-pointer px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors duration-200 font-medium"
               >
                 Logout
               </button>
@@ -123,7 +123,7 @@ export default function Header() {
           ) : (
             <button
               onClick={() => navigate('/login')}
-              className="hidden sm:block px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="hidden cursor-pointer sm:block px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition-all duration-200 shadow-md hover:shadow-lg"
             >
               Login
             </button>
@@ -209,7 +209,7 @@ export default function Header() {
               </div>
               <button
                 onClick={handleLogout}
-                className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-500 transition-colors"
+                className="w-full cursor-pointer py-3 rounded-xl bg-indigo-600 text-white font-medium hover:bg-indigo-500 transition-colors"
               >
                 Logout
               </button>
@@ -220,7 +220,7 @@ export default function Header() {
                 navigate('/login');
                 setOpen(false);
               }}
-              className="w-full mt-2 py-3.5 rounded-xl bg-indigo-600 text-white font-semibold shadow-md hover:bg-indigo-500 transition-all"
+              className="w-full cursor-pointer mt-2 py-3.5 rounded-xl bg-indigo-600 text-white font-semibold shadow-md hover:bg-indigo-500 transition-all"
             >
               Login
             </button>

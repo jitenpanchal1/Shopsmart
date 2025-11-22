@@ -13,6 +13,7 @@ export default function Header() {
 
   const handleLogout = () => {
     dispatch(Logout());
+    navigate("/")
     setOpen(false);
   };
 

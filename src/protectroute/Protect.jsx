@@ -9,8 +9,7 @@ function Protect({ children }) {
     const islogin = useSelector((state) => state.auth.isauth);
     useEffect(() => {
         if (!islogin) {
-            window.open("/login", "_blank")
-            navigate("/", { replace: true })
+            navigate("/login", { replace: true })
         }
     }, [navigate, islogin])
 

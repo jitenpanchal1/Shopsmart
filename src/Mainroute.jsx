@@ -23,21 +23,21 @@ const Mainroute = createBrowserRouter([
                     </Protect>
                 </>
             }, {
-                path: "/products",
+                path: "products",
                 element: <>
                     <Protect>
                         <Products />
                     </Protect>
                 </>
             }, {
-                path: "/categories",
+                path: "categories",
                 element: <>
                     <Protect>
                         <Catogries />
                     </Protect>
                 </>
             }, {
-                path: "/deals",
+                path: "deals",
                 element: <>
                     <Protect>
                         <Deals />

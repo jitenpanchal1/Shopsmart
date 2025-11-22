@@ -164,7 +164,7 @@ export default function Header() {
       {open && (
         <div className="lg:hidden bg-white border-t border-slate-200 shadow-md px-5 py-4 space-y-1">
           <Link
-            to="/home"
+            to="/"
             onClick={() => setOpen(false)}
             className="flex items-center py-3 px-3 rounded-lg hover:bg-slate-50 text-slate-800 font-medium transition-colors"
           >

@@ -11,7 +11,7 @@ function Protect({ children }) {
         if (!islogin) {
             navigate("/login", { replace: true })
         }
-    }, [navigate, islogin])
+    }, [islogin])
 
     return children
 

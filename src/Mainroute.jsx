@@ -16,7 +16,7 @@ const Mainroute = createBrowserRouter([
 
         children: [
             {
-                path: "/",
+                index: true,
                 element: <>
                     <Protect>
                         <Home />

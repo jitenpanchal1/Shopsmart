@@ -50,10 +50,11 @@ const Mainroute = createBrowserRouter([
         element: <>
             <LLogin />
         </>
-    }, {
-        basename: "/Shopsmart",
     }
 
-])
+],
+    {
+        basename: "/Shopsmart",
+    })
 
 export default Mainroute;

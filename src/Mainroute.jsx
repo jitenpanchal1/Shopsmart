@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router";
 import Protect from "./protectroute/protect";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
-import { ParallaxProvider } from "react-scroll-parallax";
 const LLogin = lazy(() => import("./pages/Login"))
 const Products = lazy(() => import("./pages/Products"))
 const Catogries = lazy(() => import("./pages/Catogries"))
@@ -26,9 +25,7 @@ const Mainroute = createBrowserRouter([
                 index: true,
                 element: <>
                     <Suspense fallback={<Loader />}>
-                        <ParallaxProvider>
                             <Home />
-                        </ParallaxProvider>
                     </Suspense>
                 </>
             }, {

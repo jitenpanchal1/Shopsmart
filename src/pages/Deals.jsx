@@ -2,8 +2,9 @@ import React from 'react'
 
 function Deals() {
   return (
-    <div>
-      <h1>best deal</h1>
+
+    <div class="bg-yellow-500 text-black text-center py-2 font-semibold">
+      🚧 Preview Mode: Project Under Development
     </div>
   )
 }

@@ -2,8 +2,9 @@ import React from 'react'
 
 function Catogries() {
   return (
-    <div>
-      <h1>cat</h1>
+
+    <div class="bg-yellow-500 text-black text-center py-2 font-semibold">
+      🚧 Preview Mode: Project Under Development
     </div>
   )
 }

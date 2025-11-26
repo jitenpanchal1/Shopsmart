@@ -9,7 +9,7 @@ import Makeup from "../assets/makeup.png"
 import Prebutton from './Prebutton'
 import Nextbutton from './Nextbutton'
 
-export default function Homecompo() {
+export default function HomSliderProductShowcaseecompo() {
     const settings = {
         dots: true,
         infinite: true,

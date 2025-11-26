@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Protect from "./protectroute/protect";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
+import { ParallaxProvider } from "react-scroll-parallax";
 const LLogin = lazy(() => import("./pages/Login"))
 const Products = lazy(() => import("./pages/Products"))
 const Catogries = lazy(() => import("./pages/Catogries"))
@@ -25,34 +26,36 @@ const Mainroute = createBrowserRouter([
                 index: true,
                 element: <>
                     <Suspense fallback={<Loader />}>
-                        <Home />
+                        <ParallaxProvider>
+                            <Home />
+                        </ParallaxProvider>
                     </Suspense>
                 </>
             }, {
                 path: "products",
                 element: <>
                     {/* <Protect> */}
-                        <Suspense fallback={<Loader />}>
-                            <Products />
-                        </Suspense>
+                    <Suspense fallback={<Loader />}>
+                        <Products />
+                    </Suspense>
                     {/* </Protect> */}
                 </>
             }, {
                 path: "categories",
                 element: <>
                     {/* <Protect> */}
-                        <Suspense fallback={<Loader />}>
-                            <Catogries />
-                        </Suspense>
+                    <Suspense fallback={<Loader />}>
+                        <Catogries />
+                    </Suspense>
                     {/* </Protect> */}
                 </>
             }, {
                 path: "deals",
                 element: <>
                     {/* <Protect> */}
-                        <Suspense fallback={<Loader />}>
-                            <Deals />
-                        </Suspense>
+                    <Suspense fallback={<Loader />}>
+                        <Deals />
+                    </Suspense>
                     {/* </Protect> */}
                 </>
             }

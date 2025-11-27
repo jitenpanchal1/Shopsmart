@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react'
+import Loader from '../components/Loader'
 
 const Homethree = lazy(() => import('../components/Homethree'))
 const HomeCard = lazy(() => import('../components/HomeCard'))
@@ -27,10 +28,10 @@ function Home() {
 
       {/* MAIN CONTENT */}
       <div className="relative z-20">
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Homethree />
         </Suspense>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <HomeCard />
         </Suspense>
 

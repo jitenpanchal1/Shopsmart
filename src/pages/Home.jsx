@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from 'react'
 
 const Homethree = lazy(() => import('../components/Homethree'))
-// const HomeCard = lazy(() => import('../components/HomeCard')) 
-import HomeCard from '../components/HomeCard'
+const HomeCard = lazy(() => import('../components/HomeCard'))
+// import HomeCard from '../components/HomeCard'
 
 function Home() {
   return (
@@ -30,7 +30,10 @@ function Home() {
         <Suspense fallback={null}>
           <Homethree />
         </Suspense>
-        <HomeCard />
+        <Suspense fallback={null}>
+          <HomeCard />
+        </Suspense>
+
       </div>
 
     </div>

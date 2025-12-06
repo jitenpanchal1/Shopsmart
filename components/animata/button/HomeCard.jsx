@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef, useCallback } from "react"
 import { gsap } from "gsap"
 import { Draggable } from "gsap/Draggable"
 import { InertiaPlugin } from "gsap/InertiaPlugin"
 import { Link } from "react-router"
-import { i } from "motion/react-client"
-
 gsap.registerPlugin(Draggable, InertiaPlugin)
 
+// Static data is naturally performant
 const cardsData = [
+  // ... (cardsData array is unchanged)
   {
-    id : 1,
+    id: 1,
     name: "Nike Air Max",
     description: "Responsive cushioning with a bold, everyday street-style look.",
     price: 8999,
@@ -17,7 +17,7 @@ const cardsData = [
     link: "/products",
   },
   {
-    id : 2,
+    id: 2,
     name: "Adidas Ultraboost",
     description: "High-energy return, ultra comfort built for long runs.",
     price: 11999,
@@ -25,7 +25,7 @@ const cardsData = [
     link: "/products",
   },
   {
-    id : 3,
+    id: 3,
     name: "iPhone 15 Pro",
     description: "Flagship performance with ultra-fast charging and smooth display.",
     price: 69999,
@@ -33,7 +33,7 @@ const cardsData = [
     link: "/products",
   },
   {
-    id : 4,
+    id: 4,
     name: "Samsung AI EcoBubble",
     description: "Smart washing machine with AI wash, EcoBubble and steam hygiene.",
     price: 42999,
@@ -41,7 +41,7 @@ const cardsData = [
     link: "/products",
   },
   {
-    id : 5,
+    id: 5,
     name: "Sony BRAVIA XR",
     description: "Cognitive Processor XR with full-array LED for true realism.",
     price: 189999,
@@ -50,38 +50,44 @@ const cardsData = [
   },
 
   {
-    id : 6,
+    id: 6,
     name: "Apple Watch Series 8",
     description: "Advanced health tracking with a premium, minimal display.",
     price: 45999,
     image: "https://bankofelectronics.com/668-medium_default/apple-watch-series-8-gps-45-mm-smart-watch-w-midnight-aluminium-case-with-midnight-sport-band.jpg",
     link: "/products",
   }
-
-
-
-
 ];
 
+// Debounce utility for resizing
+const debounce = (func, delay) => {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+};
 
-export default function HomeCard() {
+const HomeCard = () => {
   const wrapperRef = useRef(null)
   const proxyRef = useRef(null)
+
+  // Use useCallback to memoize getRadius
+  const getRadius = useCallback(() => {
+    const w = window.innerWidth
+    if (w < 480) return 180
+    if (w < 768) return 260
+    if (w < 1200) return 380
+    return 650
+  }, [])
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".creative-card")
     const total = cards.length
 
-    const getRadius = () => {
-      const w = window.innerWidth
-      if (w < 480) return 180
-      if (w < 768) return 260
-      if (w < 1200) return 380
-      return 650
-    }
-
     let radius = getRadius()
 
+    // Use useCallback for setDepth (it's called on every update)
     const setDepth = (el) => {
       const rot = gsap.getProperty(el, "rotationY")
       const z = Math.cos((rot * Math.PI) / 180) * 200 + 200
@@ -102,12 +108,15 @@ export default function HomeCard() {
     )
 
     const resize = () => {
+      // getRadius is now memoized
       radius = getRadius()
       spin.vars.transformOrigin = `50% 50% ${-radius}px`
       spin.invalidate().restart()
     }
 
-    window.addEventListener("resize", resize)
+    // Debounce the resize event
+    const debouncedResize = debounce(resize, 150);
+    window.addEventListener("resize", debouncedResize)
 
     let start = 0
 
@@ -132,15 +141,16 @@ export default function HomeCard() {
     })
 
     return () => {
-      window.removeEventListener("resize", resize)
+      // Clean up the debounced listener
+      window.removeEventListener("resize", debouncedResize)
       spin.kill()
       Draggable.get(proxyRef.current)?.kill()
     }
-  }, [])
+  }, [getRadius]) // useEffect now depends on getRadius
 
   return (
     <section className="w-full flex flex-col items-center justify-center overflow-hidden px-4">
-
+      {/* ... (JSX is unchanged) */}
       <h1 className="
             text-4xl md:text-5xl lg:text-6xl  
            text-white
@@ -149,7 +159,7 @@ export default function HomeCard() {
             block
             text-center
           ">
-          Explore Our Exclusive Collections
+        Explore Our Exclusive Collections
       </h1>
 
       <div
@@ -285,3 +295,5 @@ export default function HomeCard() {
     </section>
   )
 }
+
+export default HomeCard

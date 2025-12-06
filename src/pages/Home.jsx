@@ -3,7 +3,6 @@ import Loader from '../components/Loader'
 
 const Homethree = lazy(() => import('../components/Homethree'))
 const HomeCard = lazy(() => import('../../components/animata/button/HomeCard'))
-// import HomeCard from '../components/HomeCard'
 
 function Home() {
   return (

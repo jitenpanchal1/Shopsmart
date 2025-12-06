@@ -2,14 +2,12 @@ import React, { Suspense, lazy } from 'react'
 import Loader from '../components/Loader'
 
 const Homethree = lazy(() => import('../components/Homethree'))
-const HomeCard = lazy(() => import('../components/HomeCard'))
+const HomeCard = lazy(() => import('../../components/animata/button/HomeCard'))
 // import HomeCard from '../components/HomeCard'
 
 function Home() {
   return (
     <div className="relative min-h-screen">
-
-      {/* BACKGROUND VIDEO - no scroll hijacking */}
       <video
         className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none"
         autoPlay

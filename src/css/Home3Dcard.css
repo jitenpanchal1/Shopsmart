@@ -1,0 +1,55 @@
+/* .titles {
+    color: #00FFF3;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.demoWrapper {
+    width: 1000px;
+    height: 550px;
+    margin: 120px auto 250px;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+.box {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    margin: 20px 0 0 370px;
+    overflow: hidden;
+}
+
+
+.creative-pro {
+    border: 1px solid #00fff3;
+    color: #00fff2;
+    background: transparent;
+    height: 320px;
+    padding: 0;
+}
+
+
+.creative-pro:hover {
+    cursor: grab;
+    box-shadow: 0 4px 8px #00fff3, 0 6px 20px #00fff3;
+}
+
+.product-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-bottom: 1px solid #00fff3;
+}
+
+
+.creative-pro {
+    height: 260px;
+    padding: 0;
+}
+
+.card-body {
+    padding: 15px;
+} */

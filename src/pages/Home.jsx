@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react'
 import Loader from '../components/Loader'
 
 const Homethree = lazy(() => import('../components/Homethree'))
-const HomeCard = lazy(() => import('../../components/animata/button/HomeCard'))
+const HomeCard = lazy(() => import('../../components/HomeCard'))
 
 function Home() {
   return (

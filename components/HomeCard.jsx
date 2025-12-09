@@ -14,9 +14,7 @@ import Watch from "../src/assets/Watches.webp"
 
 gsap.registerPlugin(Draggable, InertiaPlugin)
 
-// Static data is naturally performant
 const cardsData = [
-  // ... (cardsData array is unchanged)
   {
     id: 1,
     name: "Nike Air Max",
@@ -68,7 +66,6 @@ const cardsData = [
   }
 ];
 
-// Debounce utility for resizing
 const debounce = (func, delay) => {
   let timeout;
   return function (...args) {
@@ -81,7 +78,6 @@ const HomeCard = () => {
   const wrapperRef = useRef(null)
   const proxyRef = useRef(null)
 
-  // Use useCallback to memoize getRadius
   const getRadius = useCallback(() => {
     const w = window.innerWidth
     if (w < 480) return 180
@@ -96,7 +92,6 @@ const HomeCard = () => {
 
     let radius = getRadius()
 
-    // Use useCallback for setDepth (it's called on every update)
     const setDepth = (el) => {
       const rot = gsap.getProperty(el, "rotationY")
       const z = Math.cos((rot * Math.PI) / 180) * 200 + 200
@@ -117,13 +112,11 @@ const HomeCard = () => {
     )
 
     const resize = () => {
-      // getRadius is now memoized
       radius = getRadius()
       spin.vars.transformOrigin = `50% 50% ${-radius}px`
       spin.invalidate().restart()
     }
 
-    // Debounce the resize event
     const debouncedResize = debounce(resize, 150);
     window.addEventListener("resize", debouncedResize)
 
@@ -150,21 +143,20 @@ const HomeCard = () => {
     })
 
     return () => {
-      // Clean up the debounced listener
       window.removeEventListener("resize", debouncedResize)
       spin.kill()
       Draggable.get(proxyRef.current)?.kill()
     }
-  }, [getRadius]) // useEffect now depends on getRadius
+  }, [getRadius])
 
   return (
     <section className="w-full flex flex-col items-center justify-center overflow-hidden px-4">
-      {/* ... (JSX is unchanged) */}
       <h1 className="
-            text-4xl md:text-5xl lg:text-6xl  
+            text-3xl md:text-5xl lg:text-6xl  
            text-white
            font-bold
-            mb-10
+            mb-0
+            md:mb-5
             block
             text-center
           ">

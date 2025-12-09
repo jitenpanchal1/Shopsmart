@@ -7,11 +7,57 @@
   --animate-float: float 6s ease-in-out infinite;
 
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-12px);
     }
+  }
+}
+
+.marquee-track {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes marquee-x {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-x-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-horizontal {
+  animation: marquee-x var(--duration) linear infinite;
+}
+
+.animate-marquee-horizontal-reverse {
+  animation: marquee-x-reverse var(--duration) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-marquee-horizontal,
+  .animate-marquee-horizontal-reverse {
+    animation: none !important;
+    transform: translate3d(0, 0, 0) !important;
   }
 }

@@ -31,29 +31,23 @@ const Mainroute = createBrowserRouter([
             }, {
                 path: "products",
                 element: <>
-                    {/* <Protect> */}
                     <Suspense fallback={<Loader />}>
                         <Products />
                     </Suspense>
-                    {/* </Protect> */}
                 </>
             }, {
                 path: "categories",
                 element: <>
-                    {/* <Protect> */}
                     <Suspense fallback={<Loader />}>
                         <Catogries />
                     </Suspense>
-                    {/* </Protect> */}
                 </>
             }, {
                 path: "deals",
                 element: <>
-                    {/* <Protect> */}
                     <Suspense fallback={<Loader />}>
                         <Deals />
                     </Suspense>
-                    {/* </Protect> */}
                 </>
             }
         ]

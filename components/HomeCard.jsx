@@ -155,7 +155,7 @@ const HomeCard = () => {
             text-3xl md:text-5xl lg:text-6xl  
            text-white
            font-bold
-            mb-0
+            mb-5
             md:mb-5
             block
             text-center

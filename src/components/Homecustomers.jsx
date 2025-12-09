@@ -106,8 +106,9 @@ export default function Homecustomers() {
             <h3 className="text-3xl md:text-5xl lg:text-6xl  
            text-white
            font-bold
-            mb-0
+            mb-10
             md:mb-15
+
             block
             text-center">
                 What Our Customers Say

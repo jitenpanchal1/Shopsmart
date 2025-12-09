@@ -1,1 +1,0 @@
-import{j as e}from"./index-Dm_0c5h0.js";function o(){return e.jsx("div",{class:"bg-yellow-500 text-black text-center py-2 font-semibold",children:"🚧 Preview Mode: Project Under Development"})}export{o as default};

@@ -54,8 +54,6 @@ export default function Marquee({
         <div
           className={`pointer-events-none absolute inset-0 z-10 ${
             vertical
-              ? "bg-gradient-to-b from-white/40 via-transparent to-white/40 dark:from-gray-900/80 dark:to-gray-900/80"
-              : "bg-gradient-to-r from-white/40 via-transparent to-white/40 dark:from-gray-900/80 dark:to-gray-900/80"
           }`}
         />
       )}

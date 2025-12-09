@@ -4,13 +4,13 @@ function CustomerCard({ data }) {
     return (
         <div
             className="
-                w-[85%] max-w-[260px]      /* smaller on mobile */
+                w-[85%] max-w-[260px]
                 sm:max-w-sm
-                p-3 sm:p-6                /* reduced padding mobile */
+                p-3 sm:p-6                
                 rounded-3xl shadow-2xl 
                 text-white bg-gray-900 border border-indigo-700
                 hover:shadow-indigo-500/50 transition duration-300 ease-in-out transform hover:scale-[1.02] 
-                bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900
+               md:bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900
             "
         >
             <div className="flex justify-end mb-2 sm:mb-4">

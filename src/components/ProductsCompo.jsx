@@ -18,7 +18,7 @@ function ProductsCompo() {
     //   ))}
     // </div>
 
-    <div class="bg-yellow-500 text-black text-center py-2 font-semibold">
+    <div className="bg-yellow-500 text-black text-center py-2 font-semibold">
       🚧 Preview Mode: Project Under Development
     </div>
   );

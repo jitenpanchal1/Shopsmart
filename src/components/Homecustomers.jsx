@@ -102,7 +102,16 @@ export default function Homecustomers() {
     ], []);
 
     return (
-        <section className="py-20 space-y-6">
+        <section className="py-10 space-y-6">
+            <h3 className="text-3xl md:text-5xl lg:text-6xl  
+           text-white
+           font-bold
+            mb-0
+            md:mb-15
+            block
+            text-center">
+                What Our Customers Say
+            </h3>
             <Marquee
                 repeat={6}
                 pauseOnHover

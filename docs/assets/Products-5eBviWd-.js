@@ -1,1 +1,0 @@
-import{j as e}from"./index-MtCc9sGm.js";function t(){return e.jsx("div",{class:"bg-yellow-500 text-black text-center py-2 font-semibold",children:"🚧 Preview Mode: Project Under Development"})}function r(){return e.jsx(t,{})}export{r as default};

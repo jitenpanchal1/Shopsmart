@@ -8,7 +8,7 @@ export default function Allcompo() {
         <>
             <Header />
             <Outlet />
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

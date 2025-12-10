@@ -5,7 +5,7 @@ import SlideArrowButton from "../../components/animata/button/slide-arrow-button
 
 export default function Homethree() {
     return (
-        <section className="relative w-full min-h-[85vh] overflow-hidden flex items-center justify-center pt-10 pb-10 md:pt-25 md:pb-25">
+        <section className="relative w-full min-h-[85vh] overflow-hidden flex items-center justify-center py-10 md:pt-25 md:pb-25">
             <div className="absolute inset-0" />
             <div className="relative z-10 max-w-6xl w-full text-center px-4 sm:px-6 lg:px-8 mx-auto">
                 <div className="mx-auto  mb-5 lg:mb-5">

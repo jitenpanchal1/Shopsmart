@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchproduct, setPriceRange } from "../reduxslices/ProductSlice";
+// Import the new list item component
+// import ProductListItem from "./ProductListItem"; 
 import ProductCard from "./ProductCard";
 
 import AOS from "aos";
@@ -155,20 +157,18 @@ function ProductsCompo() {
         </div>
       )}
 
-      {/* Product Grid */}
+      {/* Product Grid - Single Column List View (Consistent on all devices) */}
       <div
         className="
           grid 
           grid-cols-1 
-          sm:grid-cols-2 
-          lg:grid-cols-3 
-          xl:grid-cols-4 
-          gap-8
+          gap-6
           mt-8
         "
       >
         {currentItems.map((p) => (
           <div key={p.id} data-aos="zoom-in">
+            {/* Using the detailed list item component */}
             <ProductCard product={p} />
           </div>
         ))}
@@ -192,8 +192,8 @@ function ProductsCompo() {
                 key={i}
                 onClick={() => goToPage(i + 1)}
                 className={`px-4 py-2 text-sm font-bold rounded-full transition cursor-pointer ${currentPage === i + 1
-                    ? "bg-indigo-600 text-white shadow-lg transform scale-105"
-                    : "bg-white text-slate-600 border border-gray-300 hover:bg-indigo-50 hover:text-indigo-600"
+                  ? "bg-indigo-600 text-white shadow-lg transform scale-105"
+                  : "bg-white text-slate-600 border border-gray-300 hover:bg-indigo-50 hover:text-indigo-600"
                   }`}
               >
                 {i + 1}

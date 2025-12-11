@@ -11,10 +11,9 @@ function Footer() {
         shadow-[0_-4px_20px_rgba(99,102,241,0.15)]
       "
         >
-            {/* Main Grid */}
+
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
-                {/* Brand */}
                 <div>
                     <h2 className="text-2xl font-extrabold text-indigo-400 tracking-wide mb-4">
                         ShopSmart
@@ -24,7 +23,6 @@ function Footer() {
                         built for performance.
                     </p>
 
-                    {/* Social Links */}
                     <div className="flex gap-4 mt-4">
                         <a
                             href="#"
@@ -64,7 +62,6 @@ function Footer() {
                     </div>
                 </div>
 
-                {/* Quick Links */}
                 <div>
                     <h3 className="text-lg font-bold text-indigo-300 mb-4">Quick Links</h3>
                     <ul className="space-y-2 text-sm">
@@ -75,7 +72,6 @@ function Footer() {
                     </ul>
                 </div>
 
-                {/* Support */}
                 <div>
                     <h3 className="text-lg font-bold text-indigo-300 mb-4">Support</h3>
                     <ul className="space-y-2 text-sm">
@@ -85,14 +81,12 @@ function Footer() {
                     </ul>
                 </div>
 
-                {/* Newsletter */}
                 <div>
                     <h3 className="text-lg font-bold text-indigo-300 mb-4">Stay Updated</h3>
                     <p className="text-sm text-gray-400 mb-3">
                         Subscribe for exclusive deals & offers.
                     </p>
 
-                    {/* Responsive Email Input */}
                     <div className="flex flex-col sm:flex-row gap-3">
                         <input
                             type="email"
@@ -117,7 +111,6 @@ function Footer() {
 
             </div>
 
-            {/* Bottom */}
             <div className="mt-12 pt-6 border-t border-indigo-700/40 text-center">
                 <p className="text-xs text-gray-500">
                     © {new Date().getFullYear()} ShopSmart — All Rights Reserved.

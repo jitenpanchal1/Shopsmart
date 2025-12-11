@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { ShoppingCart, Search, User, Menu, X } from "lucide-react";
 import { Logout } from "../reduxslices/user";
+import { setSearch } from "../reduxslices/ProductSlice";
 
 export default function Header() {
   const { isauth, userdetail } = useSelector((state) => state.auth);
+  const [value, setValue] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -17,11 +19,16 @@ export default function Header() {
     setOpen(false);
   };
 
+  const handleSearchChange = (e) => {
+    setValue(e.target.value);
+    dispatch(setSearch(e.target.value));
+    navigate('/products');
+  }
+
   return (
     <header className="w-full sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-slate-50 shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
 
-        {/* Logo */}
         <div
           onClick={() => navigate('/')}
           className="flex items-center gap-3 cursor-pointer group"
@@ -34,12 +41,13 @@ export default function Header() {
           </span>
         </div>
 
-        {/* Mobile Search Input */}
         {showMobileSearch && (
           <div className="sm:hidden absolute left-4 right-4 top-20">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
+              value={value}
+                onChange={handleSearchChange}
                 type="text"
                 placeholder="Search products..."
                 className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 shadow-md"
@@ -55,7 +63,6 @@ export default function Header() {
           </div>
         )}
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:flex gap-8 text-sm font-medium">
           <Link
             to="/"
@@ -91,20 +98,19 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Right Section */}
         <div className="flex items-center gap-3 sm:gap-4">
 
-          {/* Desktop Search */}
           <div className="hidden sm:block relative flex-1 max-w-xs lg:max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
+              onChange={handleSearchChange}
+              value={value}
               type="text"
               placeholder="Search products..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200"
             />
           </div>
 
-          {/* Auth */}
           {isauth ? (
             <div className="hidden sm:flex items-center gap-3 border border-slate-200 rounded-2xl px-3 py-1.5 bg-slate-50 shadow-sm">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-500 flex items-center justify-center text-white shadow-sm">
@@ -129,7 +135,6 @@ export default function Header() {
             </button>
           )}
 
-          {/* Cart */}
           <button
             className="relative p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 group shadow-sm"
           >
@@ -144,7 +149,10 @@ export default function Header() {
             className="sm:hidden p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors"
             onClick={() => setShowMobileSearch(true)}
           >
-            <Search size={18} className="text-slate-700" />
+            <Search size={18} className="text-slate-700"
+              onChange={handleSearchChange}
+               value={value}
+            />
           </button>
 
           {/* Mobile Menu Toggle */}

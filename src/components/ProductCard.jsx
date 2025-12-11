@@ -1,71 +1,63 @@
-import React, { useState } from "react";
+import React, { memo, useMemo } from "react";
+import { useNavigate } from "react-router";
+import StarRating from "./StarRating";
 
-function ProductCard({ item }) {
-    const [showFull, setShowFull] = useState(false);
+function ProductCard({ product }) {
+    const navigate = useNavigate();
 
-    const shortDesc =
-        item.description?.length > 60
-            ? item.description.slice(0, 60) + "..."
-            : item.description;
+    const handleViewDetails = () => {
+        navigate(`/products/${product.id}`);
+    };
 
-    // Convert reviewStars to 5-star visual
-    const stars = Array.from({ length: 5 }, (_, i) => i < Math.round(item.reviewStars));
-
-    // Color logic: bad = red, average = yellow, good = green
-    const ratingColor =
-        item.reviewStars >= 4
-            ? "text-green-600"
-            : item.reviewStars >= 2
-                ? "text-yellow-500"
-                : "text-red-600";
+    const rating = useMemo(() => Number(product.reviewStars) || 0, [product.reviewStars]);
 
     return (
-        <div className="border rounded-xl p-4 shadow hover:shadow-lg transition">
-            <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-            />
-
-            <h1 className="text-xl font-semibold">{item.name}</h1>
-            <p className="text-green-600 font-bold mt-1">₹{item.price}</p>
-
-            <div className={`flex items-center gap-1 mt-2 ${ratingColor}`}>
-                {stars.map((filled, i) => (
-                    <span key={i}>
-                        {filled ? "★" : "☆"}
-                    </span>
-                ))}
-                <span className="text-sm text-gray-600 ml-2">
-                    ({item.reviewStars})
-                </span>
+        <div
+            onClick={handleViewDetails}
+            className="group flex flex-col overflow-hidden rounded-xl bg-white border border-gray-100 shadow-lg transition-all duration-300 hover:shadow-2xl cursor-pointer"
+        >
+            {/* IMAGE */}
+            <div className="w-full h-52 sm:h-56 md:h-60 lg:h-64 overflow-hidden bg-gray-100">
+                <img
+                    src={product.image}
+                    alt={product.name}
+                    // Added object-top focus for better visual
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                />
             </div>
 
-            {/* CATEGORY TAGS */}
-            <div className="flex flex-wrap gap-2 mt-2">
-                {item.category?.map((cat, i) => (
-                    <span
-                        key={i}
-                        className="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full"
-                    >
-                        {cat}
-                    </span>
-                ))}
+            {/* CONTENT */}
+            <div className="flex flex-col flex-1 p-5 space-y-3">
+                <h3 className="text-xl font-bold text-gray-900 line-clamp-2 transition duration-300 group-hover:text-indigo-600">
+                    {product.name}
+                </h3>
+
+                {/* Rating and Price on one line */}
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                        <StarRating rating={rating} />
+                        <span className="ml-2 text-sm font-semibold text-gray-600">{rating.toFixed(1)}</span>
+                    </div>
+                    <p className="text-2xl font-extrabold text-indigo-700">₹{product.price}</p>
+                </div>
+
+                <p className="text-sm text-gray-500 line-clamp-3 flex-grow border-t border-gray-100 pt-3">
+                    {product.description}
+                </p>
+
+                {/* Button */}
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleViewDetails();
+                    }}
+                    className="mt-auto w-full rounded-lg bg-indigo-600 py-2.5 text-base font-semibold text-white shadow-md shadow-indigo-300 transition duration-300 hover:bg-indigo-700 transform hover:scale-[1.02] active:scale-100 focus:outline-none focus:ring-4 focus:ring-indigo-300 cursor-pointer"
+                >
+                    View Details
+                </button>
             </div>
-
-            {/* DESCRIPTION */}
-            <p className="text-sm text-gray-600 mt-3">
-                {showFull ? item.description : shortDesc}
-            </p>
-
-            <button
-                onClick={() => setShowFull(!showFull)}
-                className="text-blue-600 font-medium text-sm mt-2 hover:underline"
-            >
-                {showFull ? "Show Less" : "Show More"}
-            </button>
         </div>
     );
 }
 
-export default ProductCard;
+export default memo(ProductCard);

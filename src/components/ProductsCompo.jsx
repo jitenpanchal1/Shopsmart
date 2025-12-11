@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchproduct, setPriceRange } from "../reduxslices/ProductSlice";
 import ProductCard from "./ProductCard";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function ProductsCompo() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -11,6 +14,15 @@ function ProductsCompo() {
   const { items, status, error, search, price } = useSelector(
     (state) => state.products
   );
+
+  // INIT AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(fetchproduct());
@@ -70,18 +82,14 @@ function ProductsCompo() {
 
   const goToPage = useCallback((page) => setCurrentPage(page), []);
 
-  // ✅ Scroll to top when page changes
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-12 bg-slate-50 min-h-screen">
 
-      {/* Header Section */}
+      {/* Header */}
       <div className="bg-indigo-700 text-white rounded-lg shadow-xl mb-10 p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
@@ -93,6 +101,7 @@ function ProductsCompo() {
             </p>
           </div>
 
+          {/* Price Filter */}
           <div className="relative w-full sm:w-64">
             <select
               id="price-filter"
@@ -118,7 +127,7 @@ function ProductsCompo() {
         </div>
       </div>
 
-      {/* Loading State */}
+      {/* Loading */}
       {status === "Loading" && (
         <div className="py-20 text-center bg-white rounded-xl shadow-md border border-gray-100">
           <div className="animate-spin h-14 w-14 border-4 border-indigo-600 border-t-transparent rounded-full mx-auto"></div>
@@ -128,7 +137,7 @@ function ProductsCompo() {
         </div>
       )}
 
-      {/* Error State */}
+      {/* Error */}
       {status === "failed" && (
         <div className="py-10 bg-red-50 border border-red-400 text-red-700 px-6 rounded-lg shadow-md">
           <p className="font-extrabold text-xl">Connection Error</p>
@@ -136,7 +145,7 @@ function ProductsCompo() {
         </div>
       )}
 
-      {/* Empty State */}
+      {/* Empty */}
       {filteredItems.length === 0 && status !== "Loading" && (
         <div className="text-center py-20 bg-white rounded-xl shadow-md border border-gray-200">
           <p className="text-gray-700 text-2xl font-bold">No Products Found</p>
@@ -159,7 +168,9 @@ function ProductsCompo() {
         "
       >
         {currentItems.map((p) => (
-          <ProductCard key={p.id} product={p} />
+          <div key={p.id} data-aos="zoom-in">
+            <ProductCard product={p} />
+          </div>
         ))}
       </div>
 

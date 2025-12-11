@@ -13,6 +13,7 @@ function ProductCard({ product }) {
 
     return (
         <div
+            data-aos="zoom-in"
             onClick={handleViewDetails}
             className="group flex flex-col overflow-hidden rounded-xl bg-white border border-gray-100 shadow-lg transition-all duration-300 hover:shadow-2xl cursor-pointer"
         >
@@ -21,7 +22,6 @@ function ProductCard({ product }) {
                 <img
                     src={product.image}
                     alt={product.name}
-                    // Added object-top focus for better visual
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                 />
             </div>
@@ -32,11 +32,13 @@ function ProductCard({ product }) {
                     {product.name}
                 </h3>
 
-                {/* Rating and Price on one line */}
+                {/* Rating and Price */}
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
                         <StarRating rating={rating} />
-                        <span className="ml-2 text-sm font-semibold text-gray-600">{rating.toFixed(1)}</span>
+                        <span className="ml-2 text-sm font-semibold text-gray-600">
+                            {rating.toFixed(1)}
+                        </span>
                     </div>
                     <p className="text-2xl font-extrabold text-indigo-700">₹{product.price}</p>
                 </div>

@@ -59,7 +59,7 @@ export default function LLogin() {
             const read = await call.json();
             setloading(false);
             dispatch(Login(read));
-            navigate("/")
+            navigate("/products")
         } catch (err) {
             seterror("Network error");
             setloading(false);

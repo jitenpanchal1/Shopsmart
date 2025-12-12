@@ -10,6 +10,7 @@ const Deals = lazy(() => import("./pages/Deals"))
 const Allcompo = lazy(() => import("./pages/Allcompo"))
 const Home = lazy(() => import("./pages/Home"))
 const DetailProduct = lazy(() => import("./pages/DetailProduct"))
+const Cart = lazy(() => import("./pages/Cartitems"))
 
 
 const Mainroute = createBrowserRouter([
@@ -56,6 +57,14 @@ const Mainroute = createBrowserRouter([
                     <Suspense fallback={<Loader />}>
                         <DetailProduct />
                     </Suspense>
+                </>
+            }, {
+                path: "cart",
+                element: <>
+                    <Suspense fallback={<Loader />}>
+                        <Cart />
+                    </Suspense>
+
                 </>
             }
         ]

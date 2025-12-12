@@ -7,6 +7,7 @@ import { setSearch } from "../reduxslices/ProductSlice";
 
 export default function Header() {
   const { isauth, userdetail } = useSelector((state) => state.auth);
+  const cartitem = useSelector((state) => state.cart.item)
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ export default function Header() {
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
-              value={value}
+                value={value}
                 onChange={handleSearchChange}
                 type="text"
                 placeholder="Search products..."
@@ -137,10 +138,11 @@ export default function Header() {
 
           <button
             className="relative p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 group shadow-sm"
+            onClick={() => navigate("/cart")}
           >
             <ShoppingCart className="w-5 h-5 text-slate-700 group-hover:text-indigo-600 transition-colors" />
             <span className="absolute -top-1 -right-1 bg-violet-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-semibold shadow-sm">
-              0
+              {cartitem.length}
             </span>
           </button>
 
@@ -151,7 +153,7 @@ export default function Header() {
           >
             <Search size={18} className="text-slate-700"
               onChange={handleSearchChange}
-               value={value}
+              value={value}
             />
           </button>
 

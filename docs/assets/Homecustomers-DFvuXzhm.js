@@ -1,4 +1,4 @@
-import{R as l,j as e,r}from"./index-CAbGp-cg.js";function n({children:s,vertical:t=!1,repeat:a=5,pauseOnHover:c=!1,reverse:i=!1,className:m="",applyMask:d=!0,...h}){const p=l.Children.toArray(s);return e.jsxs("div",{...h,className:`group relative flex h-full w-full p-2 overflow-hidden
+import{R as l,j as e,r}from"./index-CL-l6gFb.js";function n({children:s,vertical:t=!1,repeat:a=5,pauseOnHover:c=!1,reverse:i=!1,className:m="",applyMask:d=!0,...h}){const p=l.Children.toArray(s);return e.jsxs("div",{...h,className:`group relative flex h-full w-full p-2 overflow-hidden
       [--duration:10s] [--gap:12px] [gap:var(--gap)]
       ${t?"flex-col":"flex-row"}
       ${m}`,children:[Array.from({length:a}).map((N,u)=>e.jsx("div",{className:`flex shrink-0 [gap:var(--gap)]

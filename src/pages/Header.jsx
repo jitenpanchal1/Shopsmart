@@ -137,11 +137,11 @@ export default function Header() {
           )}
 
           <button
-            className="relative p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 group shadow-sm"
+            className="relative p-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 group shadow-sm cursor-pointer"
             onClick={() => navigate("/cart")}
           >
             <ShoppingCart className="w-5 h-5 text-slate-700 group-hover:text-indigo-600 transition-colors" />
-            <span className="absolute -top-1 -right-1 bg-violet-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-semibold shadow-sm">
+            <span className="absolute -top-1 -right-1 bg-violet-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-semibold shadow-sm ">
               {cartitem.length}
             </span>
           </button>
@@ -171,7 +171,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {open && (
         <div className="lg:hidden bg-white border-t border-slate-200 shadow-md px-5 py-4 space-y-1">
           <Link
@@ -206,7 +205,6 @@ export default function Header() {
             Deals
           </Link>
 
-          {/* Mobile Auth */}
           {isauth ? (
             <div className="pt-3 border-t border-slate-200">
               <div className="flex items-center gap-3 px-3 py-2 mb-2">

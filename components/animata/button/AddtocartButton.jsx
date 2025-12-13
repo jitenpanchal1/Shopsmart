@@ -12,7 +12,7 @@ function AddToCartButton({ product }) {
     const isLogin = useSelector((state) => state.auth.isauth);
 
     const [isAdding, setIsAdding] = useState(false);
-    const [showSuccess, setShowSuccess] = useState(false); // kept for parity
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const checkall = cartItems.some((p) => p.id === product.id);
 

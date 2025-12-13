@@ -17,4 +17,4 @@ function Protect({ children }) {
 
 }
 
-export default Protect
+export default React.memo(Protect)

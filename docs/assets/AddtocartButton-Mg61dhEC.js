@@ -1,0 +1,3 @@
+import{r as o,a as m,b as p,u as i,j as h,l as b}from"./index-DQGMKfuu.js";function f({product:a}){const c=m(),d=p(),u=i(t=>t.cart.item),g=i(t=>t.auth.isauth),[e,n]=o.useState(!1),[x,r]=o.useState(!1),s=u.some(t=>t.id===a.id),l=t=>{if(t.stopPropagation(),!g){d("/login");return}n(!0),c(b(a)),setTimeout(()=>{n(!1),r(!0),setTimeout(()=>r(!1),2e3)},500)};return h.jsx("button",{onClick:s||e?t=>t.stopPropagation():l,disabled:s||e,className:`w-full sm:w-auto px-6 py-2.5 text-base font-semibold text-white rounded-lg transition duration-300 cursor-pointer
+        ${s?"bg-green-600 hover:bg-green-700":"bg-orange-500 hover:bg-orange-600"}
+      `,children:e?"Adding...":s?"✓ In Cart":"Add to Cart"})}const S=o.memo(f);export{S as A};

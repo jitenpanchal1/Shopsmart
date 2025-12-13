@@ -27,7 +27,7 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-slate-50 shadow-sm">
+    <header className="w-full sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-slate-50 shadow-sm relative z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
 
         <div
@@ -82,10 +82,17 @@ export default function Header() {
           </Link>
 
           <Link
-            to="/categories"
+            to="/contact"
             className="text-slate-700 hover:text-indigo-600 transition-colors duration-200 relative py-2 group"
           >
-            Categories
+            Contact
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300" />
+          </Link>
+          <Link
+            to="/about"
+            className="text-slate-700 hover:text-indigo-600 transition-colors duration-200 relative py-2 group"
+          >
+            AboutUs
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300" />
           </Link>
 

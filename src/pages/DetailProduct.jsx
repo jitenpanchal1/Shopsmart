@@ -1,13 +1,16 @@
 import React from 'react'
 import DetailP from '../components/DetailP'
+import { useEffect } from 'react';
 
 function DetailProduct() {
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
     return (
         <>
             <DetailP />
-            {/* <div class="bg-yellow-500 text-black text-center py-2 font-semibold">
-                🚧 Preview Mode: Project Under Development
-            </div> */}
+
         </>
     )
 }

@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchproduct, setPriceRange } from "../reduxslices/ProductSlice";
-// Import the new list item component
-// import ProductListItem from "./ProductListItem"; 
 import ProductCard from "./ProductCard";
 
 import AOS from "aos";
@@ -17,7 +15,7 @@ function ProductsCompo() {
     (state) => state.products
   );
 
-  // INIT AOS
+  
   useEffect(() => {
     AOS.init({
       duration: 700,
@@ -90,8 +88,6 @@ function ProductsCompo() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-12 bg-slate-50 min-h-screen">
-
-      {/* Header */}
       <div className="bg-indigo-700 text-white rounded-lg shadow-xl mb-10 p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>

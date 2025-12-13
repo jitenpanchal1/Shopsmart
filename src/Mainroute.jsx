@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router";
-// import LLogin from "./pages/Login";
-import Protect from "./protectroute/protect";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
 const LLogin = lazy(() => import("./pages/Login"))

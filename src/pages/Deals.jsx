@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import { lazy } from 'react';
-// import DealCompo from '../components/DealCompo'
 import { useEffect } from 'react';
 import Loader from '../components/Loader';
 

@@ -1,1 +1,0 @@
-import{r,b as s,j as i}from"./index-d6ciX2zR.js";function a({productId:t}){const o=s(),e=n=>{n.stopPropagation(),o(`/products/${t}`)};return i.jsx("button",{onClick:e,className:"px-6 py-2.5 bg-indigo-600 text-white rounded-lg cursor-pointer",children:"View Details"})}const u=r.memo(a);export{u as V};

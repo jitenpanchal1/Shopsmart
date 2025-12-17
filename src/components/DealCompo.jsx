@@ -1,7 +1,10 @@
-import  { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { Zap, Clock } from "lucide-react";
 import { useNavigate } from "react-router";
-import DealCard from "./DealCard";
+import Loader from "./Loader";
+// import DealCard from "./DealCard";
+const DealCard = lazy(() => import("./DealCard"))
+
 
 const deals = [
     {
@@ -106,11 +109,13 @@ function DealCompo() {
 
                 <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                     {deals.map((item) => (
-                        <DealCard
-                            key={item.id}
-                            item={item}
-                            onNavigate={handleNavigate}
-                        />
+                        <Suspense fallback={<Loader />}>
+                            <DealCard
+                                key={item.id}
+                                item={item}
+                                onNavigate={handleNavigate}
+                            />
+                        </Suspense>
                     ))}
                 </div>
             </main>

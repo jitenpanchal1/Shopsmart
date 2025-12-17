@@ -1,6 +1,10 @@
-import React from 'react'
-import DealCompo from '../components/DealCompo'
+import React, { Suspense } from 'react'
+import { lazy } from 'react';
+// import DealCompo from '../components/DealCompo'
 import { useEffect } from 'react';
+import Loader from '../components/Loader';
+
+const DealCompo = lazy(() => import("../components/DealCompo"))
 
 function Deals() {
 
@@ -9,7 +13,9 @@ function Deals() {
   }, []);
 
   return (
-    <DealCompo />
+    <Suspense fallback={<Loader />}>
+      <DealCompo />
+    </Suspense>
   )
 }
 

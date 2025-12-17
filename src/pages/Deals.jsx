@@ -1,11 +1,15 @@
 import React from 'react'
+import DealCompo from '../components/DealCompo'
+import { useEffect } from 'react';
 
 function Deals() {
-  return (
 
-    <div class="bg-yellow-500 text-black text-center py-2 font-semibold">
-      🚧 Preview Mode: Project Under Development
-    </div>
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  return (
+    <DealCompo />
   )
 }
 

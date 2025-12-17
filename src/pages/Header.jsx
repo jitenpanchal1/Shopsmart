@@ -197,11 +197,19 @@ export default function Header() {
           </Link>
 
           <Link
-            to="/categories"
+            to="/contact"
             onClick={() => setOpen(false)}
             className="flex items-center py-3 px-3 rounded-lg hover:bg-slate-50 text-slate-800 font-medium transition-colors"
           >
-            Categories
+            contact
+          </Link>
+          <Link
+            to="/about"
+            onClick={() => setOpen(false)}
+            className="flex items-center py-3 px-3 rounded-lg hover:bg-slate-50 text-slate-800 font-medium transition-colors"
+          >
+            AboutUs
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300" />
           </Link>
 
           <Link
@@ -211,6 +219,7 @@ export default function Header() {
           >
             Deals
           </Link>
+
 
           {isauth ? (
             <div className="pt-3 border-t border-slate-200">

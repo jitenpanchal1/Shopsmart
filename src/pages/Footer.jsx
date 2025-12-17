@@ -21,6 +21,7 @@ function FooterCompo() {
         { name: "About", href: "/about" },
         { name: "Products", href: "/products" },
         { name: "Contact", href: "/contact" },
+        { name: "Hot Deals", href: "/deals" },
     ];
 
     const socialLinks = [

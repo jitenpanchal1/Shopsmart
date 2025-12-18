@@ -22,6 +22,7 @@ function FooterCompo() {
         { name: "Products", href: "/products" },
         { name: "Contact", href: "/contact" },
         { name: "Hot Deals", href: "/deals" },
+        { name: "Project Info", href: "/projectinfo" },
     ];
 
     const socialLinks = [

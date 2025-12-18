@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/DealCompo-D8OY9FDV.js","assets/index-prYpQ5C1.js","assets/index-DypCl985.css","assets/createLucideIcon-C_RinAYG.js"])))=>i.map(i=>d[i]);
-import{r as s,j as o,c as e,_ as r}from"./index-prYpQ5C1.js";const t=s.lazy(()=>r(()=>import("./DealCompo-D8OY9FDV.js"),__vite__mapDeps([0,1,2,3])));function l(){return s.useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"})},[]),o.jsx(s.Suspense,{fallback:o.jsx(e,{}),children:o.jsx(t,{})})}export{l as default};

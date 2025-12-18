@@ -1,1 +1,0 @@
-import{r as e,j as t}from"./index-prYpQ5C1.js";function r(){return e.useEffect(()=>{window.scrollTo({top:0,behavior:"smooth"})},[]),t.jsx("div",{className:"bg-yellow-500 text-black text-center py-2 font-semibold",children:"🚧 Preview Mode: Project Under Development"})}export{r as default};

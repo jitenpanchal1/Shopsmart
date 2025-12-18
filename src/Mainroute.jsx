@@ -11,6 +11,7 @@ const DetailProduct = lazy(() => import("./pages/DetailProduct"))
 const Cart = lazy(() => import("./pages/Cartitems"))
 const Protect = lazy(() => import("./protectroute/Protect"))
 const About = lazy(() => import("./pages/About"))
+const ProjectInfo = lazy(() => import("./pages/ProjectInfo"))
 
 
 
@@ -75,6 +76,13 @@ const Mainroute = createBrowserRouter([
                         </Protect>
                     </Suspense>
 
+                </>
+            }, {
+                path: "projectinfo",
+                element: <>
+                    <Suspense fallback={<Loader />}>
+                        <ProjectInfo />
+                    </Suspense>
                 </>
             }
         ]

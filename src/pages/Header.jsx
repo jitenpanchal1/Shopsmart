@@ -104,6 +104,14 @@ export default function Header() {
           >
             Deals
           </Link>
+
+          <Link
+            to="/projectinfo"
+            className="text-slate-700 hover:text-indigo-600 transition-colors duration-200 relative py-2 group"
+          >
+            Project Info
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-500 group-hover:w-full transition-all duration-300" />
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-4">
@@ -218,6 +226,14 @@ export default function Header() {
             className="flex items-center py-3 px-3 rounded-lg hover:bg-slate-50 text-[#134686] font-semibold transition-colors animate-pulse"
           >
             Deals
+          </Link>
+
+          <Link
+            to="/projectinfo"
+            onClick={() => setOpen(false)}
+            className="flex items-center py-3 px-3 rounded-lg hover:bg-slate-50 text-slate-800 font-medium transition-colors"
+          >
+            Project Info
           </Link>
 
 

@@ -1,11 +1,15 @@
 import React, { Suspense, lazy } from 'react'
 import Loader from '../components/Loader'
+import { useEffect } from 'react'
 
 const Homethree = lazy(() => import('../components/Homethree'))
 const HomeCard = lazy(() => import('../../components/HomeCard'))
 const Homecustomers = lazy(() => import('../components/Homecustomers'))
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <section className="relative min-h-screen">
       <video

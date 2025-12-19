@@ -16,7 +16,7 @@ function ProductCard({ product }) {
             data-aos="fade-up"
             className="flex flex-col sm:flex-row bg-white  rounded-lg shadow-md p-4 sm:p-6 hover:shadow-xl cursor-pointer gap-4"
         >
-            <div className="w-40 h-40 sm:w-48 sm:h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+            <div className="w-full h-40 sm:w-48 sm:h-48 bg-gray-100 rounded-lg flex items-center justify-center">
                 <img
                     src={product.image}
                     alt={product.name}

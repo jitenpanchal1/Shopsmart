@@ -1,0 +1,1 @@
+import{R as s,b as r,u as c,r as u}from"./index-svZRzr4Q.js";function i({children:e}){const a=r(),t=c(o=>o.auth.isauth);return u.useEffect(()=>{t||a("/login",{replace:!0})},[t]),e}const f=s.memo(i);export{f as default};

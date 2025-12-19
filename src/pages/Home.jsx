@@ -7,9 +7,11 @@ const HomeCard = lazy(() => import('../../components/HomeCard'))
 const Homecustomers = lazy(() => import('../components/Homecustomers'))
 
 function Home() {
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   return (
     <section className="relative min-h-screen">
       <video
@@ -27,7 +29,6 @@ function Home() {
       </video>
 
       <div className="fixed inset-0 z-10 bg-gradient-to-b from-[#1E293B]/90 via-[#1E293B]/80 to-[#1E293B]/90 pointer-events-none" />
-
       <div className="relative z-20">
         <Suspense fallback={<Loader />}>
           <Homethree />
